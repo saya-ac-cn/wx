@@ -15,6 +15,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(app)
     var that = this;
     // 查看是否授权
     wx.getSetting({
@@ -112,8 +113,11 @@ Page({
       // });
       //授权成功后，跳转进入小程序首页
       console.log("单击授权后进入主页")
-      console.log("用户的信息如下：");
-      console.log(e.detail);
+      console.log("openid:"+ app.globalData.openid)
+      console.log("nickName:" + e.detail.userInfo.nickName)
+      console.log("avatarUrl:" + e.detail.userInfo.avatarUrl)
+      console.log("province:" + e.detail.userInfo.province)
+      console.log("city:" + e.detail.userInfo.city)      
       wx.redirectTo({
         url: '/pages/index/index'
       })
